@@ -1,6 +1,6 @@
 # vst-native-orb 
 
-Most of the steps are the same for building all the sdk's since conan is used.
+Most of the steps are the same for building all the native code since conan is used.
 This orb contains the common commands, executors, and jobs.
 
 ## Setup CI on a vst native projects
