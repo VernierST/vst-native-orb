@@ -1,0 +1,6 @@
+description: >
+  Installs cmake on macos
+steps:
+  - run:
+      name: Install CMake
+      command: brew install cmake

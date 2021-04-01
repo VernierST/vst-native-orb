@@ -1,0 +1,6 @@
+description: >
+  Installs bluez on linux
+steps:
+  - run:
+      name: Install Bluez
+      command: apt -y install libbluetooth-dev

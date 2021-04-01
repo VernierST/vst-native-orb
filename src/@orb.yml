@@ -1,0 +1,11 @@
+version: 2.1
+
+description: >
+  This orb includes bits that are shared between native builds
+
+# This information will be displayed in the orb registry and is not mandatory.
+display:
+  source_url: "https://github.com/VernierST/vst-native-orb"
+
+orbs:
+  win: circleci/windows@2.4.0

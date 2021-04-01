@@ -1,0 +1,16 @@
+description: >
+  Uploads packages to Conan.
+
+parameters:
+  package-name:
+    type: string
+    default: ""
+
+steps:
+  - run:
+      name: Upload
+      when: always
+      command: |
+        channel=${CIRCLE_BRANCH//[_+=.,\/]/-}
+        echo "Uploading to " ${channel}
+        conan upload -c -r vst-libs --force --all "<< parameters.package-name >>/*@vernierst+vst-libs/${channel}"

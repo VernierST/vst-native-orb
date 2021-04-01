@@ -1,0 +1,13 @@
+description: >
+  Checkouts out code and sets up the fingerprints
+
+parameters:
+  vcs-fingerprint:
+    type: string
+    default: ""
+
+steps:
+  - checkout
+  - add_ssh_keys:
+      fingerprints:
+        - << parameters.vcs-fingerprint >>

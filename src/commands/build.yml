@@ -1,0 +1,33 @@
+description: >
+  Build conan packages.
+
+parameters:
+  profile:
+    type: string
+    default: "none"
+  type:
+    type: string
+    default: "Release"
+  build-missing:
+    type: boolean
+    default: false
+
+steps:
+  - run:
+      name: Build << parameters.profile >>  << parameters.type >>
+      when: always
+      command: |
+        deps=${CIRCLE_BRANCH##*@}
+        if [ "$deps" = "${CIRCLE_BRANCH}" ]; then
+          deps=""
+          channel=${CIRCLE_BRANCH//[_+=.,\/]/-}
+        else
+          channel=${CIRCLE_BRANCH%@*}
+          channel=${channel//[_+=.,\/]/-}
+        fi
+        missing=""
+        if << parameters.build-missing >> ; then
+          missing="--build missing"
+        fi
+        echo "Building for << parameters.profile >> on ${channel} for << parameters.type >>; pr_deps ${deps}; ${missing}"
+        conan create -pr << parameters.profile >> -s "build_type=<< parameters.type >>" ${missing} conan "vernierst+vst-libs/${channel}" -o "pr_deps=${deps}"

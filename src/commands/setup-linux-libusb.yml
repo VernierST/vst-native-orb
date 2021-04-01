@@ -1,0 +1,6 @@
+description: >
+  Installs libusb on linux
+steps:
+  - run:
+      name: Install libusb-1.0
+      command: apt -y install libusb-1.0-0-dev

@@ -1,0 +1,21 @@
+description: >
+  Install conan and configure it.
+parameters:
+  pip:
+    type: string
+    default: "pip3"
+steps:
+  - run:
+      name: Install Conan
+      command: << parameters.pip >> install --upgrade conan
+  - run:
+      name: Clone vst-conan-setup
+      command: git clone git@bitbucket.org:vernierst/vst-conan-setup.git
+  - run:
+      name: Config conan
+      command: conan config install vst-conan-setup/config
+  - run:
+      name: Add conan remote and user
+      command: |
+        conan user gitlab+deploy-token-296862 -p $GITLAB_API_KEY -r vst-libs
+        conan user gitlab+deploy-token-296862 -p $GITLAB_API_KEY -r gitlab

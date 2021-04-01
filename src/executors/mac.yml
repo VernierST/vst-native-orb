@@ -1,0 +1,4 @@
+description: >
+  Define the macos that we will use to build all sdks
+macos:
+  xcode: '12.4.0' #MacOS 10.15.5

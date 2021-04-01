@@ -1,0 +1,12 @@
+description: >
+  Installs autotools on macos.
+steps:
+  - run:
+      name: Install libtool
+      command: brew install libtool
+  - run:
+      name: Install pkg-config
+      command: brew install pkg-config
+  - run:
+      name: Install Zlib
+      command: brew install zlib

@@ -1,0 +1,6 @@
+description: >
+  Installs cmake on linux
+steps:
+  - run:
+      name: Install CMake
+      command: apt -y install cmake
