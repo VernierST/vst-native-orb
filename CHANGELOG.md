@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
  - Current development changes [ to be moved to release ]
 
+
+## [1.0.1] - 2021-04-06
+### Added
+ - Chrome Builds
+
 ## [1.0.0] - 2021-04-01
 ### Added
  - Initial Release
