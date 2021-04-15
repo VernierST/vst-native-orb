@@ -13,4 +13,5 @@ steps:
       command: |
         channel=${CIRCLE_BRANCH//[_+=.,\/]/-}
         echo "Uploading to " ${channel}
+        conan user gitlab+deploy-token-296862 -p $GITLAB_API_KEY -r vst-libs
         conan upload -c -r vst-libs --force --all "<< parameters.package-name >>/*@vernierst+vst-libs/${channel}"
