@@ -23,6 +23,7 @@ parameters:
 steps:
   - setup:
       vcs-fingerprint: << parameters.vcs-fingerprint >>
+  - setup-macos
   - when:
       condition: << parameters.install-cmake >>
       steps:
