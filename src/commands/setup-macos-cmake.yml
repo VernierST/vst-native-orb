@@ -2,8 +2,5 @@ description: >
   Installs cmake on macos
 steps:
   - run:
-      name: Update brew
-      command: brew update
-  - run:
       name: Install CMake
       command: brew install cmake

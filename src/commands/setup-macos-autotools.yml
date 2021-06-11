@@ -2,9 +2,6 @@ description: >
   Installs autotools on macos.
 steps:
   - run:
-      name: Update brew
-      command: brew update
-  - run:
       name: Install libtool
       command: brew install libtool
   - run:

@@ -1,0 +1,12 @@
+description: >
+  Configure MacOS
+steps:
+  - run:
+      name: Unshallow brew clones
+      command: |
+        ([ -d /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core ] && git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow) || /bin/true
+        ([ -d /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask ] && git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask fetch --unshallow) || /bin/true
+        
+  - run:
+      name: Update brew
+      command: brew update
