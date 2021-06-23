@@ -1,9 +1,9 @@
 description: >
   Install conan and configure it.
 parameters:
-  tag:
+  conan-config-version:
     type: string
-    default: "conan-2.0.0"
+    default: "2.0.4"
   pip:
     type: string
     default: "pip3"
@@ -12,11 +12,8 @@ steps:
       name: Install Conan
       command: << parameters.pip >> install --upgrade conan
   - run:
-      name: Clone vst-conan-setup
-      command: git clone -b << parameters.tag >> git@bitbucket.org:vernierst/vst-conan-setup.git
-  - run:
       name: Config conan
-      command: conan config install vst-conan-setup/config
+      command: npm install @vernier/conan-config@<< parameters.conan-config-version >>
   - run:
       name: Add conan remote and user
       command: |
