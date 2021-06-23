@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
  - Current development changes [ to be moved to release ]
 
+## [4.0.0]
+ - Switches over to new conan config that facilitates threaded wasm builds.
+
+## [3.1.0]
+ - Switches over to using npm package for conan config files
+
+## [3.0.2]
+ - Fixes issues with brew shallow clones on Mac
+
 ## [1.0.2] - 2021-04-15
 ### Added
  - Rerun ‘conan user’ prior to uploads to avoid timeouts
