@@ -31,13 +31,13 @@ steps:
         fi
 
         threads=""
-        if << parameters.profile >> = emscripten; then
+        if [ "<< parameters.profile >>" = "emscripten" ]; then
           threads="-s os.threads=False"
         fi
         echo "Building for << parameters.profile >> on ${channel} for << parameters.type >>; pr_deps ${deps}; ${missing}"
         conan create -pr << parameters.profile >> -s "build_type=<< parameters.type >>" ${missing} conan "vernierst+vst-libs/${channel}" -o "pr_deps=${deps}" ${threads}
 
-        if << parameters.profile >> = emscripten; then
+        if [ "<< parameters.profile >>" = "emscripten" ]; then
           threads="-s os.threads=True"
           echo "Building for << parameters.profile >> with threads on ${channel} for << parameters.type >>; pr_deps ${deps}; ${missing}"
           conan create -pr << parameters.profile >> -s "build_type=<< parameters.type >>" ${missing} conan "vernierst+vst-libs/${channel}" -o "pr_deps=${deps}" ${threads}
