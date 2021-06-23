@@ -1,5 +1,9 @@
 description: >
   Configure MacOS
+
+orbs:
+  node: circleci/node@4.1.0
+
 steps:
   - run:
       name: Unshallow brew clones
@@ -10,3 +14,6 @@ steps:
   - run:
       name: Update brew
       command: brew update
+
+  - node/install:
+      node-version: "15.12.0"
