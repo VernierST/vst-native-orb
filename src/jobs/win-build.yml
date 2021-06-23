@@ -22,16 +22,6 @@ parameters:
     type: boolean
     default: false
 
-commands:
-  install-node:
-    description: Install Node
-    steps:
-      - run:
-          name: Installing node packages
-          command: |
-            nvm install 15.12.0
-            nvm use 15.12.0
-
 steps:
   - setup:
       vcs-fingerprint: << parameters.vcs-fingerprint >>
