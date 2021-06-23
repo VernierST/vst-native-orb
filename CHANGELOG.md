@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
  - Current development changes [ to be moved to release ]
 
+## [4.0.2]
+ - Need Node on Mac / Windows to install Conan config
+
 ## [4.0.0]
  - Switches over to new conan config that facilitates threaded wasm builds.
 
