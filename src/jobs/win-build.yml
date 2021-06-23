@@ -29,7 +29,7 @@ steps:
       condition: << parameters.install-cmake >>
       steps:
         - setup-win-cmake
-  - install-node
+  - setup-win-node
   - install-conan-and-configure:
       pip: "pip"
   - build:
