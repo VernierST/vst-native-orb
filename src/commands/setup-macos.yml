@@ -1,9 +1,6 @@
 description: >
   Configure MacOS
 
-orbs:
-  node: circleci/node@4.1.0
-
 steps:
   - run:
       name: Unshallow brew clones
