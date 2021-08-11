@@ -1,0 +1,6 @@
+description: >
+  Installs clang-tidy on linux
+steps:
+  - run:
+      name: Install clang-tidy
+      command: apt -y install clang-tidy

@@ -42,6 +42,7 @@ steps:
       condition: << parameters.install-bluez >>
       steps:
         - setup-linux-bluez
+  - setup-linux-clang-tidy
   - install-conan-and-configure
   - build:
       profile: "linux"
