@@ -25,6 +25,12 @@ parameters:
   build-missing:
     type: boolean
     default: false
+  build-emscripten-threaded:
+    type: boolean
+    default: true
+  build-emscripten-threadless:
+    type: boolean
+    default: true
 
 steps:
   - setup:
@@ -88,10 +94,14 @@ steps:
       profile: "emscripten"
       type: "Release"
       build-missing: << parameters.build-missing >>
+      build-emscripten-threadless: << parameters.build-emscripten-threadless >>
+      build-emscripten-threaded: << parameters.build-emscripten-threaded >>
   - build:
       profile: "emscripten"
       type: "Debug"
       build-missing: << parameters.build-missing >>
+      build-emscripten-threadless: << parameters.build-emscripten-threadless >>
+      build-emscripten-threaded: << parameters.build-emscripten-threaded >>
   - build:
       profile: "chrome"
       type: "Release"
