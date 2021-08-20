@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
  - Current development changes [ to be moved to release ]
 
+## [4.3.1]
+ - Updated conan-config (new emscripten profile)
+
+## [4.3.0]
+ - Updated conan-config (new emscripten profile)
+
 ## [4.0.2]
  - Need Node on Mac / Windows to install Conan config
 
