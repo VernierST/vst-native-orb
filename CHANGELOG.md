@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
  - Current development changes [ to be moved to release ]
 
+## [5.0.3]
+ - Updated conan-config to v5.0.3 (emscripten profile update)
+
 ## [5.0.2]
  - Updated conan-config to v5.0.2 (fixed emscripten profile)
 
