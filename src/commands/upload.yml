@@ -9,7 +9,6 @@ parameters:
 steps:
   - run:
       name: Upload
-      when: always
       command: |
         channel=${CIRCLE_BRANCH//[_+=.,\/]/-}
         echo "Uploading to " ${channel}
