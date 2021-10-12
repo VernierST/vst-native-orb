@@ -21,7 +21,6 @@ parameters:
 steps:
   - run:
       name: Build << parameters.profile >>  << parameters.type >>
-      when: always
       command: |
         deps=${CIRCLE_BRANCH##*@}
         if [ "$deps" = "${CIRCLE_BRANCH}" ]; then
