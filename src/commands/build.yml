@@ -22,6 +22,7 @@ steps:
   - run:
       name: Build << parameters.profile >>  << parameters.type >>
       command: |
+        set -e
         deps=${CIRCLE_BRANCH##*@}
         if [ "$deps" = "${CIRCLE_BRANCH}" ]; then
           deps=""
