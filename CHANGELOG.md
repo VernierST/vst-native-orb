@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
  - Current development changes [ to be moved to release ]
 
+## [5.1.2]
+
+ - Linux tweaks
+
 ## [5.1.1]
 
  - Fix error handling in the build command

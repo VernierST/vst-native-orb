@@ -2,6 +2,7 @@ description: >
   Build linux, android and emscripten
 
 executor: linux
+resource_class: large
 
 parameters:
   package-name:
@@ -50,14 +51,6 @@ steps:
         - setup-linux-bluez
   - setup-linux-clang-tidy
   - install-conan-and-configure
-  - build:
-      profile: "linux"
-      type: "Release"
-      build-missing: << parameters.build-missing >>
-  - build:
-      profile: "linux"
-      type: "Debug"
-      build-missing: << parameters.build-missing >>
   - build:
       profile: "android32"
       type: "Release"
