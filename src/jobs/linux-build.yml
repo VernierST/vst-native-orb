@@ -2,6 +2,7 @@ description: >
   Build linux, android and emscripten
 
 executor: linux
+resource_class: large
 
 parameters:
   package-name:
