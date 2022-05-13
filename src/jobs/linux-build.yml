@@ -52,14 +52,6 @@ steps:
   - setup-linux-clang-tidy
   - install-conan-and-configure
   - build:
-      profile: "linux"
-      type: "Release"
-      build-missing: << parameters.build-missing >>
-  - build:
-      profile: "linux"
-      type: "Debug"
-      build-missing: << parameters.build-missing >>
-  - build:
       profile: "android32"
       type: "Release"
       build-missing: << parameters.build-missing >>
