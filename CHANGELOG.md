@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
  - Current development changes [ to be moved to release ]
 
-## [6.0.0]
+## [6.0.2]
+ - bump node orb version, use node orb on linux
+
+## [6.0.1]
  - fix macos setup, and bump node version to v16
 
 ## [6.0.0]
