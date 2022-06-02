@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
  - Current development changes [ to be moved to release ]
 
+## [6.0.0]
+ - Orb for use with conan-config 6.0.0 (emscripten 3.1.12 and xcode 11.7.0)
+
 ## [5.1.2]
 
  - Linux tweaks.
