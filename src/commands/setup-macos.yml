@@ -7,4 +7,4 @@ steps:
       command: brew update
 
   - node/install:
-      node-version: "15.12.0"
+      node-version: "16"
