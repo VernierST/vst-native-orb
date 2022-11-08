@@ -3,7 +3,7 @@ description: >
 parameters:
   conan-config-version:
     type: string
-    default: "7.0.0"
+    default: "7.1.0"
   pip:
     type: string
     default: "pip3"
