@@ -2,6 +2,7 @@ description: >
   Build macosarm
 
 executor: mac12
+resource_class: large
 
 parameters:
   package-name:

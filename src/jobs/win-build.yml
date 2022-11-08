@@ -5,6 +5,8 @@ executor:
   name: win/default
   shell: bash.exe
 
+resource_class: large
+
 parameters:
   package-name:
     type: string
