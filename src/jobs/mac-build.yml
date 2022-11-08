@@ -34,11 +34,19 @@ steps:
         - setup-macos-autotools
   - install-conan-and-configure
   - build:
-      profile: "macos"
+      profile: "macosx86"
       type: "Release"
       build-missing: << parameters.build-missing >>
   - build:
-      profile: "macos"
+      profile: "macosx86"
+      type: "Debug"
+      build-missing: << parameters.build-missing >>
+  - build:
+      profile: "macosarm"
+      type: "Release"
+      build-missing: << parameters.build-missing >>
+  - build:
+      profile: "macosarm"
       type: "Debug"
       build-missing: << parameters.build-missing >>
   - build:
