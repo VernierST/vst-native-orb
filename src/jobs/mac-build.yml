@@ -2,7 +2,7 @@ description: >
   Build macosx86, ios, and ios-simulator
 
 executor: mac
-resource_class: large
+resource_class: macos.x86.medium.gen2
 
 parameters:
   package-name:

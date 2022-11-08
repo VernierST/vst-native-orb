@@ -2,7 +2,7 @@ description: >
   Build macosarm
 
 executor: mac12
-resource_class: large
+resource_class: macos.x86.medium.gen2
 
 parameters:
   package-name:
