@@ -1,5 +1,5 @@
 description: >
-  Build macosx86, ios, and ios-simulator
+  Build macosarm
 
 executor: mac
 
@@ -34,27 +34,11 @@ steps:
         - setup-macos-autotools
   - install-conan-and-configure
   - build:
-      profile: "macosx86"
+      profile: "macosarm"
       type: "Release"
       build-missing: << parameters.build-missing >>
   - build:
-      profile: "macosx86"
-      type: "Debug"
-      build-missing: << parameters.build-missing >>
-  - build:
-      profile: "ios"
-      type: "Release"
-      build-missing: << parameters.build-missing >>
-  - build:
-      profile: "ios"
-      type: "Debug"
-      build-missing: << parameters.build-missing >>
-  - build:
-      profile: "ios-simulator"
-      type: "Release"
-      build-missing: << parameters.build-missing >>
-  - build:
-      profile: "ios-simulator"
+      profile: "macosarm"
       type: "Debug"
       build-missing: << parameters.build-missing >>
   - upload:
