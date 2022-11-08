@@ -4,8 +4,7 @@ description: >
 executor:
   name: win/default
   shell: bash.exe
-
-resource_class: large
+  size: large
 
 parameters:
   package-name:
