@@ -2,7 +2,9 @@ description: >
   Build macosx86, ios, and ios-simulator
 
 executor: mac
-resource_class: macos.x86.medium.gen2
+# NB: do not upgrade this, the old images are very slow to get VM assignment on
+# the gen2 resource (as in 10s of minutes, even hours)
+resource_class: medium
 
 parameters:
   package-name:
