@@ -10,7 +10,7 @@ parameters:
 steps:
   - run:
       name: Install Conan
-      command: << parameters.pip >> install --upgrade conan
+      command: << parameters.pip >> install --upgrade 'conan<2.0'
   - run:
       name: Config conan
       command: npm install @vernier/conan-config@<< parameters.conan-config-version >>
