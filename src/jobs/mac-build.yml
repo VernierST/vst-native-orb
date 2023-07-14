@@ -4,7 +4,7 @@ description: >
 executor: mac
 # NB: do not upgrade this, the old images are very slow to get VM assignment on
 # the gen2 resource (as in 10s of minutes, even hours)
-resource_class: macos.x86.medium.gen2
+resource_class: macos.m1.medium.gen1
 
 parameters:
   package-name:
@@ -42,6 +42,14 @@ steps:
       build-missing: << parameters.build-missing >>
   - build:
       profile: "macosx86"
+      type: "Debug"
+      build-missing: << parameters.build-missing >>
+  - build:
+      profile: "macosarm"
+      type: "Release"
+      build-missing: << parameters.build-missing >>
+  - build:
+      profile: "macosarm"
       type: "Debug"
       build-missing: << parameters.build-missing >>
   - build:
