@@ -23,6 +23,8 @@ parameters:
     type: boolean
     default: false
 
+context: vst-back-end
+
 steps:
   - setup:
       vcs-fingerprint: << parameters.vcs-fingerprint >>
