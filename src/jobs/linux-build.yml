@@ -105,3 +105,5 @@ steps:
       build-missing: << parameters.build-missing >>
   - upload:
       package-name: << parameters.package-name >>
+  - slack-setup
+  - slack-notify
