@@ -1,0 +1,39 @@
+description: Configuring slack notifications
+steps:
+  - run:
+      name: Gathering information for Slack mentions
+      when: always
+      command: |
+        EMAIL=`git show -s --format='%ae' $CIRCLE_SHA1`
+        if [ "$EMAIL" = "tomas@tomtain.com" ]; then
+          MENTIONS="@tomas"
+        fi
+
+        if [ "$EMAIL" = "ihonohan@vernier.com" ]; then
+          MENTIONS="@ian"
+        fi
+
+        if [ "$EMAIL" = "jminor@vernier.com" ]; then
+          MENTIONS="@jenny"
+        fi
+
+        if [ "$EMAIL" = "belting@vernier.com" ]; then
+            MENTIONS="@bre"
+        fi
+
+        if [ "$EMAIL" = "jkelly@vernier.com" ]; then
+            MENTIONS="@joek"
+        fi
+
+        if [ "$EMAIL" = "pwalsh@vernier.com" ]; then
+          MENTIONS="@mossymaker"
+        fi
+
+        if [ "$EMAIL" = "jblakely@vernier.com" ]; then
+          MENTIONS="@jimmy"
+        fi
+
+        if [ -n "$MENTIONS" ]; then
+          echo "SLACK_PARAM_MENTIONS=$MENTIONS" >> $BASH_ENV
+        fi
+        echo "MENTIONS: $MENTIONS"

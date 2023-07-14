@@ -10,3 +10,4 @@ display:
 orbs:
   win: circleci/windows@2.4.0
   node: circleci/node@5.0.2
+  slack: circleci/slack@4.12.5

@@ -1,0 +1,12 @@
+description: Dispatching Slack notifications
+
+parameters:
+  channel:
+    type: string
+    default: "C05GYEZJKQA"
+
+steps:
+  - slack/notify:
+      channel: << parameters.channel >>
+      event: fail
+      template: basic_fail_1
