@@ -10,3 +10,6 @@ steps:
   - run:
       name: Install Zlib
       command: brew install zlib
+  - run:
+      name: Install automake
+      command: brew install automake
