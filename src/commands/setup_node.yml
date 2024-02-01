@@ -1,0 +1,56 @@
+description: Setup node
+
+parameters:
+  host:
+    type: string
+  nodeExactVersion:
+    type: string
+  nvmCacheVer:
+    type: string
+
+steps:
+  - restore_cache:
+      name: Restore nvm cache
+      keys:
+        - nvm-cache-{{ arch }}--<< parameters.nvmCacheVer >>-<< parameters.nodeExactVersion >>
+
+  - when:
+      condition:
+        or:
+          - equal: [ macos, << parameters.host >> ]
+          - equal: [ linux, << parameters.host >> ]
+      steps:
+        - node/install:
+            node-version: << parameters.nodeExactVersion >>
+
+        - save_cache:
+            name: Save nvm cache
+            key: nvm-cache-{{ arch }}--<< parameters.nvmCacheVer >>-<< parameters.nodeExactVersion >>
+            paths:
+              - '../.nvm'
+
+  - when:
+      condition:
+        equal: [windows, << parameters.host >>]
+      steps:
+        - run:
+            name: Upgrade NVM
+            command: |
+              # upgrade nvm to latest version to avoid bug: npm ERR! Unexpected token '.' on v1.1.7.
+              # https://github.com/npm/cli/issues/4234
+              # nvm will not upgrade to latest version unless portable is specified.
+              choco upgrade nvm.portable
+
+        - run:
+            name: Install Node
+            command: |
+              # install both 32 and 64 bit versions, configure 64 for use
+              nvm install << parameters.nodeExactVersion >> 32
+              nvm install << parameters.nodeExactVersion >>
+              nvm use << parameters.nodeExactVersion >>
+
+        - save_cache:
+            name: Save nvm cache
+            key: nvm-cache-{{ arch }}--<< parameters.nvmCacheVer >>-<< parameters.nodeExactVersion >>
+            paths:
+              - '/ProgramData/nvm'
