@@ -39,7 +39,7 @@ steps:
               # upgrade nvm to latest version to avoid bug: npm ERR! Unexpected token '.' on v1.1.7.
               # https://github.com/npm/cli/issues/4234
               # nvm will not upgrade to latest version unless portable is specified.
-              choco upgrade nvm.portable
+              choco upgrade -y nvm.portable
 
         - run:
             name: Install Node
