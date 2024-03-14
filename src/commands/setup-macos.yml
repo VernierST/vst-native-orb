@@ -6,5 +6,7 @@ steps:
       name: Update brew
       command: brew update
 
+  - setup-macos-python
+
   - node/install:
       node-version: "16"

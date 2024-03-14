@@ -1,0 +1,6 @@
+description: >
+  Install required python3 bits
+steps:
+  - run:
+      name: Install setuptools
+      command: pip3 install setuptools
