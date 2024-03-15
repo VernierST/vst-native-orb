@@ -11,6 +11,12 @@ steps:
       name: Upload
       command: |
         channel=${CIRCLE_BRANCH//[_+=.,\/]/-}
+
+        # treat release and beta branches like main
+        if echo $CIRCLE_BRANCH | grep '^beta/.\+\|^release/.\+'; then
+          channel=main
+        fi
+
         echo "Uploading to " ${channel}
         conan user gitlab+deploy-token-296862 -p $GITLAB_API_KEY -r vst-libs
         conan upload -c -r vst-libs --force --all "<< parameters.package-name >>/*@vernierst+vst-libs/${channel}"
