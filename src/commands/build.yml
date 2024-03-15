@@ -31,6 +31,10 @@ steps:
           channel=${CIRCLE_BRANCH%@*}
           channel=${channel//[_+=.,\/]/-}
         fi
+        # treat release and beta branches like main
+        if echo $CIRCLE_BRANCH | grep '^beta/.\+\|^release/.\+'; then
+          channel=main
+        fi
         missing=""
         if << parameters.build-missing >> ; then
           missing="--build missing"
