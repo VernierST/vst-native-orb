@@ -37,3 +37,10 @@ conan config package it uses.
 
 For further questions/comments about this or other orbs, visit the Orb Category of [CircleCI Discuss](https://discuss.circleci.com/c/orbs).
 
+NOTE: if the orb update triggers 'The dev version of vst/vst-native-orb@dev:alpha has expired. Dev versions of orbs are only valid for 90 days after publishing.', the dev orb needs to be re-published:
+
+  circleci orb pack src > dist/orb.yml
+  circleci orb validate dist/orb.yml
+  circleci orb publish dist/orb.yml vst/vst-native-orb@dev:alpha
+
+After that touch the main repo again to trigger the CI pipeline
