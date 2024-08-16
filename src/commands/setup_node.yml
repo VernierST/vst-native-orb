@@ -49,6 +49,10 @@ steps:
               nvm install << parameters.nodeExactVersion >>
               nvm use << parameters.nodeExactVersion >>
 
+              # nvm on windows doesn't set correct exist statuses
+              if [ "$(node -v)" != "v<< parameters.nodeExactVersion>>" ]; then
+                exit 1;
+              fi
         - save_cache:
             name: Save nvm cache
             key: nvm-cache-{{ arch }}--<< parameters.nvmCacheVer >>-<< parameters.nodeExactVersion >>
