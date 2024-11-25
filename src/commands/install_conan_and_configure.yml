@@ -1,7 +1,7 @@
 description: >
   Install conan and configure it.
 parameters:
-  conan-config-version:
+  conan_config_version:
     type: string
     default: "9.0.0"
   pip:
@@ -13,7 +13,7 @@ steps:
       command: << parameters.pip >> install --upgrade 'conan<2.0'
   - run:
       name: Config conan
-      command: npm install @vernier/conan-config@<< parameters.conan-config-version >>
+      command: npm install @vernier/conan-config@<< parameters.conan_config_version >>
   - run:
       name: Add conan remote and user
       command: |

@@ -8,13 +8,13 @@ parameters:
   type:
     type: string
     default: "Release"
-  build-missing:
+  build_missing:
     type: boolean
     default: false
-  build-emscripten-threaded:
+  build_emscripten_threaded:
     type: boolean
     default: true
-  build-emscripten-threadless:
+  build_emscripten_threadless:
     type: boolean
     default: true
 
@@ -36,7 +36,7 @@ steps:
           channel=main
         fi
         missing=""
-        if << parameters.build-missing >> ; then
+        if << parameters.build_missing >> ; then
           missing="--build missing"
         fi
 
@@ -45,12 +45,12 @@ steps:
           threads="-s os.threads=False"
         fi
 
-        if [ "<< parameters.profile >>" != "emscripten" ] || << parameters.build-emscripten-threadless >>; then
+        if [ "<< parameters.profile >>" != "emscripten" ] || << parameters.build_emscripten_threadless >>; then
           echo "Building for << parameters.profile >> on ${channel} for << parameters.type >>; pr_deps ${deps}; ${missing}"
           conan create -pr << parameters.profile >> -s "build_type=<< parameters.type >>" ${missing} conan "vernierst+vst-libs/${channel}" -o "pr_deps=${deps}" ${threads}
         fi
 
-        if [ "<< parameters.profile >>" = "emscripten" ] && << parameters.build-emscripten-threaded >>; then
+        if [ "<< parameters.profile >>" = "emscripten" ] && << parameters.build_emscripten_threaded >>; then
           threads="-s os.threads=True"
           echo "Building for << parameters.profile >> with threads on ${channel} for << parameters.type >>; pr_deps ${deps}; ${missing}"
           conan create -pr << parameters.profile >> -s "build_type=<< parameters.type >>" ${missing} conan "vernierst+vst-libs/${channel}" -o "pr_deps=${deps}" ${threads}
