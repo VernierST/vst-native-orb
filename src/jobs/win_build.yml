@@ -7,49 +7,49 @@ executor:
   size: large
 
 parameters:
-  package-name:
+  package_name:
     type: string
     default: ""
-  install-cmake:
+  install_cmake:
     type: boolean
     default: false
-  install-autotools:
+  install_autotools:
     type: boolean
     default: false
-  vcs-fingerprint:
+  vcs_fingerprint:
     type: string
     default: ""
-  build-missing:
+  build_missing:
     type: boolean
     default: false
 
 steps:
   - setup:
-      vcs-fingerprint: << parameters.vcs-fingerprint >>
+      vcs_fingerprint: << parameters.vcs_fingerprint >>
   - when:
-      condition: << parameters.install-cmake >>
+      condition: << parameters.install_cmake >>
       steps:
-        - setup-win-cmake
-  - setup-win-node
-  - install-conan-and-configure:
+        - setup_win_cmake
+  - setup_win_node
+  - install_conan_and_configure:
       pip: "pip"
   - build:
       profile: "windows"
       type: "Release"
-      build-missing: << parameters.build-missing >>
+      build_missing: << parameters.build_missing >>
   - build:
       profile: "windows"
       type: "Debug"
-      build-missing: << parameters.build-missing >>
+      build_missing: << parameters.build_missing >>
   - build:
       profile: "windows32"
       type: "Release"
-      build-missing: << parameters.build-missing >>
+      build_missing: << parameters.build_missing >>
   - build:
       profile: "windows32"
       type: "Debug"
-      build-missing: << parameters.build-missing >>
+      build_missing: << parameters.build_missing >>
   - upload:
-      package-name: << parameters.package-name >>
-  - slack-setup
-  - slack-notify
+      package_name: << parameters.package_name >>
+  - slack_setup
+  - slack_notify

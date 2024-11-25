@@ -6,7 +6,7 @@ steps:
       name: Update brew
       command: brew update
 
-  - setup-macos-python
+  - setup_macos_python
 
   - node/install:
       node-version: "20"

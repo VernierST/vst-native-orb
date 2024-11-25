@@ -1,0 +1,109 @@
+description: >
+  Build linux, android and emscripten
+
+executor: linux
+resource_class: large
+
+parameters:
+  package_name:
+    type: string
+    default: ""
+  install_cmake:
+    type: boolean
+    default: false
+  install_autotools:
+    type: boolean
+    default: false
+  install_libusb:
+    type: boolean
+    default: false
+  install_bluez:
+    type: boolean
+    default: false
+  vcs_fingerprint:
+    type: string
+    default: ""
+  build_missing:
+    type: boolean
+    default: false
+  build_emscripten_threaded:
+    type: boolean
+    default: true
+  build_emscripten_threadless:
+    type: boolean
+    default: true
+
+steps:
+  - setup:
+      vcs_fingerprint: << parameters.vcs_fingerprint >>
+  - setup_linux
+  - when:
+      condition: << parameters.install_cmake >>
+      steps:
+        - setup_linux_cmake
+  - when:
+      condition: << parameters.install_libusb >>
+      steps:
+        - setup_linux_libusb
+  - when:
+      condition: << parameters.install_bluez >>
+      steps:
+        - setup_linux_bluez
+  - setup_linux_clang_tidy
+  - install_conan_and_configure
+  - build:
+      profile: "android32"
+      type: "Release"
+      build_missing: << parameters.build_missing >>
+  - build:
+      profile: "android32"
+      type: "Debug"
+      build_missing: << parameters.build_missing >>
+  - build:
+      profile: "android64"
+      type: "Release"
+      build_missing: << parameters.build_missing >>
+  - build:
+      profile: "android64"
+      type: "Debug"
+      build_missing: << parameters.build_missing >>
+  - build:
+      profile: "android_x86"
+      type: "Release"
+      build_missing: << parameters.build_missing >>
+  - build:
+      profile: "android_x86"
+      type: "Debug"
+      build_missing: << parameters.build_missing >>
+  - build:
+      profile: "android_x86_64"
+      type: "Release"
+      build_missing: << parameters.build_missing >>
+  - build:
+      profile: "android_x86_64"
+      type: "Debug"
+      build_missing: << parameters.build_missing >>
+  - build:
+      profile: "emscripten"
+      type: "Release"
+      build_missing: << parameters.build_missing >>
+      build_emscripten_threadless: << parameters.build_emscripten_threadless >>
+      build_emscripten_threaded: << parameters.build_emscripten_threaded >>
+  - build:
+      profile: "emscripten"
+      type: "Debug"
+      build_missing: << parameters.build_missing >>
+      build_emscripten_threadless: << parameters.build_emscripten_threadless >>
+      build_emscripten_threaded: << parameters.build_emscripten_threaded >>
+  - build:
+      profile: "chrome"
+      type: "Release"
+      build_missing: << parameters.build_missing >>
+  - build:
+      profile: "chrome"
+      type: "Debug"
+      build_missing: << parameters.build_missing >>
+  - upload:
+      package_name: << parameters.package_name >>
+  - slack_setup
+  - slack_notify
