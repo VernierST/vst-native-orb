@@ -95,14 +95,6 @@ steps:
       build_missing: << parameters.build_missing >>
       build_emscripten_threadless: << parameters.build_emscripten_threadless >>
       build_emscripten_threaded: << parameters.build_emscripten_threaded >>
-  - build:
-      profile: "chrome"
-      type: "Release"
-      build_missing: << parameters.build_missing >>
-  - build:
-      profile: "chrome"
-      type: "Debug"
-      build_missing: << parameters.build_missing >>
   - upload:
       package_name: << parameters.package_name >>
   - slack_setup
