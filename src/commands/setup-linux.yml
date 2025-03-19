@@ -2,7 +2,7 @@ description: >
   Installs tools needed on the linux vm.
 steps:
   - node/install:
-      node-version: "20"
+      node-version: "16"
 
   - run:
       name: Install pip and node. Setup sym links.
