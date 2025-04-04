@@ -9,4 +9,4 @@ steps:
   - setup_macos_python
 
   - node/install:
-      node-version: "16"
+      node-version: "20"
