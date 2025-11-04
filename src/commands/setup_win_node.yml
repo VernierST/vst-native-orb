@@ -4,5 +4,6 @@ steps:
   - run:
       name: Install Node
       command: |
-        nvm install 15.12.0
-        nvm use 15.12.0
+        nvm install 15.12.0 && nvm use 15.12.0
+      max_auto_reruns: 3
+      auto_rerun_delay: 30s

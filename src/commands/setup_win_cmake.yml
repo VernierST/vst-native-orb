@@ -4,5 +4,6 @@ steps:
   - run:
       name: Install CMake
       command: |
-        choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
-        echo 'export PATH=$PATH:"/c/Program Files/CMake/bin"' >> $BASH_ENV
+        choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y && echo 'export PATH=$PATH:"/c/Program Files/CMake/bin"' >> $BASH_ENV
+      max_auto_reruns: 3
+      auto_rerun_delay: 30s
