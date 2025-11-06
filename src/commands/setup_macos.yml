@@ -3,10 +3,6 @@ description: >
 
 steps:
   - run:
-      name: fix brew
-      command: brew uninstall temurin17 && brew untap homebrew/homebrew-cask-versions
-
-  - run:
       name: Update brew
       command: brew update
 
