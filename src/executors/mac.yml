@@ -1,4 +1,4 @@
 description: >
   Define the macos that we will use to build all sdks
 macos:
-  xcode: '15.4' #MacOS 14.3.1
+  xcode: '16.4' #MacOS 15.3
