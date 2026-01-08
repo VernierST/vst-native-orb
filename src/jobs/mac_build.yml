@@ -4,7 +4,7 @@ description: >
 executor: mac
 # NB: do not upgrade this, the old images are very slow to get VM assignment on
 # the gen2 resource (as in 10s of minutes, even hours)
-resource_class: macos.m1.medium.gen1
+resource_class: m4pro.medium
 
 parameters:
   package_name:
