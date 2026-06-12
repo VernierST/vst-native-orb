@@ -3,13 +3,13 @@ description: >
 steps:
   - run:
       name: Install libtool
-      command: brew install libtool
+      command: brew install --no-ask libtool
   - run:
       name: Install pkg-config
-      command: brew install pkg-config
+      command: brew install --no-ask pkg-config
   - run:
       name: Install Zlib
-      command: brew install zlib
+      command: brew install --no-ask zlib
   - run:
       name: Install automake
-      command: brew install automake
+      command: brew install --no-ask automake

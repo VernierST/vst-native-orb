@@ -3,4 +3,4 @@ description: >
 steps:
   - run:
       name: Install CMake
-      command: brew install cmake
+      command: brew install --no-ask cmake
